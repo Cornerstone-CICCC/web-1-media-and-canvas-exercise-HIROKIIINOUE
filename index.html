@@ -1,23 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Media Exercise</title>
-</head>
-<body>
-  <div class="container">
-    <!-- AUDIO HTML GOES HERE -->
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Media Exercise</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <section id="section-audio">
+        <audio src="./assets/audio/piano.wav" controls muted loop></audio>
+      </section>
+      <section id="section-video">
+        <video
+          src="./assets/video/ocean.mp4"
+          controls
+          muted
+          poster="./assets/images/poster.jpg"
+        ></video>
+      </section>
 
-    <!-- VIDEO HTML GOES HERE -->
+      <section id="section-image">
+        <img
+          src="./assets/images/fruit_table.jpg"
+          width="600"
+          height="800"
+          usemap="#fruit-table-map"
+        />
+        <map name="fruit-table-map" id="fruit-table-map">
+          <area
+            shape="rect"
+            coords="40,40,260,320"
+            href="https://en.wikipedia.org/wiki/Lavandula"
+          />
+          <area
+            shape="rect"
+            coords="320,120,780,520"
+            href="https://en.wikipedia.org/wiki/Orange_(fruit)"
+          />
+          <area
+            shape="circle"
+            coords="320,620,80"
+            href="https://en.wikipedia.org/wiki/Coffee"
+          />
+        </map>
+      </section>
 
-    <!-- IMAGE MAP HTML GOES HERE-->
+      <section id="section-canvas">
+        <canvas id="color-square" width="500" height="500"> </canvas>
+      </section>
+    </div>
 
-    <!-- CANVAS HTML GOES HERE -->
-  </div>
+    <script>
+      const canvas = document.getElementById("color-square");
+      const context = canvas.getContext("2d");
 
-  <script>
-    /* CANVAS JAVASCRIPT GOES HERE */
-  </script>
-</body>
+      const colors = ["green", "pink", "blue", "black"];
+      context.lineWidth = 8;
+
+      context.strokeStyle = colors[0];
+      context.beginPath();
+      context.moveTo(50, 50);
+      context.lineTo(450, 50);
+      context.stroke();
+
+      context.strokeStyle = colors[1];
+      context.beginPath();
+      context.moveTo(450, 50);
+      context.lineTo(450, 450);
+      context.stroke();
+
+      context.strokeStyle = colors[2];
+      context.beginPath();
+      context.moveTo(450, 450);
+      context.lineTo(50, 450);
+      context.stroke();
+
+      context.strokeStyle = colors[3];
+      context.beginPath();
+      context.moveTo(50, 450);
+      context.lineTo(50, 50);
+      context.stroke();
+    </script>
+  </body>
 </html>
